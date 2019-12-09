@@ -2,9 +2,14 @@
 
 namespace Test;
 
+use App\Kernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ApiControllerTest extends WebTestCase {
+
+	protected static function getKernelClass() {
+		return Kernel::class;
+	}
 
 	/**
 	 * @covers \App\Controller\ApiController::

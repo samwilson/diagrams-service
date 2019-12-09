@@ -4,19 +4,16 @@ namespace App\Controller;
 
 use App\DiagramGenerator;
 use Exception;
-use finfo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class ApiController extends AbstractController {
 
 	/**
-	 * @Route("/render", name="render")
 	 * @param Request $request
 	 * @param DiagramGenerator $diagramGenerator
 	 * @return Response
@@ -28,7 +25,14 @@ class ApiController extends AbstractController {
 			$types = [ $types ];
 		}
 		$diagramGenerator->setTypesRequested( $types );
-		$diagramGenerator->setSource( $request->get( 'source' ) );
+		$source = $request->get( 'source' );
+		if ( !$source ) {
+			return new JsonResponse( [
+				'status' => 'error',
+				'error' => 'no-source',
+			] );
+		}
+		$diagramGenerator->setSource( $source );
 		try {
 			$diagramGenerator->render();
 		} catch ( Exception $exception ) {
@@ -64,7 +68,6 @@ class ApiController extends AbstractController {
 	}
 
 	/**
-	 * @Route("/view/{hash}.{type}", name="view")
 	 * @param Request $request
 	 * @param DiagramGenerator $diagramGenerator
 	 * @return Response

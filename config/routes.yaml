@@ -1,3 +1,9 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+home:
+    path: /
+    controller: App\Controller\MainController::index
+render:
+    path: /render
+    controller: App\Controller\ApiController::diagramRender
+view:
+    path: /view/{hash}.{type}
+    controller: App\Controller\ApiController::diagramView

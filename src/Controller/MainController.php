@@ -8,11 +8,10 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController {
+
 	/**
-	 * @Route("/", name="home")
 	 * @param Request $request
 	 * @param DiagramGenerator $diagramGenerator
 	 * @return \Symfony\Component\HttpFoundation\Response
