@@ -12,6 +12,7 @@ jobs:
 
     - name: Install
       run: |
+        sudo apt-get install graphviz
         cp .env.dist .env
         composer install
         npm install
