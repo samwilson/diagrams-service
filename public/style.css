@@ -1,0 +1,16 @@
+body { margin:1em; }
+
+main { display:flex; }
+.leftpage, .rightpage { flex:1; }
+
+form .row { display:flex; }
+form .row .label { flex:1; }
+form .row .field { flex:5; }
+
+form .gen-types { display:block; height:3em; }
+
+.rightpage { overflow:scroll; align-self:center; text-align:center; }
+.rightpage pre { text-align:left; }
+
+footer { font-size:smaller; text-align:right; }
+footer ul { list-style-type:none; }

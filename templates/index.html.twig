@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<div class="leftpage">
+    {% if result.error is defined %}
+        <pre class="error">
+            {{ result.error }}
+        </pre>
+    {% endif %}
+
+    <form action="{{ path('home') }}" method="post">
+        <p class="row examples">
+            <span class="label">{{ msg('examples') }}</span>
+            <span class="field">
+            {% for example in examples %}
+                &nbsp;<button type="button" class="example" data-source="{{ example.source|escape('html_attr') }}" data-generator="{{ example.generator }}">
+                    {{ example.name }}
+                </button>
+            {% endfor %}
+            </span>
+        </p>
+        <p class="row">
+            <label class="label" for="generator">{{ msg('generators-radios') }}</label>
+            <span class="field">
+                <select name="generator" id="generator">
+                    {% for gen_group, gens in generators %}
+                        <optgroup label="{{ msg(gen_group) }}" data-gen-group="{{ gen_group }}">
+                            {% for gen in gens %}
+                                <option value="{{ gen }}" {% if gen == generator %}selected{% endif %}>
+                                    {{ gen }}
+                                </option>
+                            {% endfor %}
+                        </optgroup>
+                    {% endfor %}
+                </select>
+            </span>
+        </p>
+        <p class="row">
+            <label class="label" for="types">{{ msg('types') }}</label>
+            <span class="field">
+                {% for genGroup, genTypes in types %}
+                    <span class="gen-types gen-types-{{ genGroup }}">
+                        {% for type in genTypes %}
+                            <input id="type-{{ genGroup }}-{{ type }}" type="checkbox" value="{{ type }}" name="types[]" />
+                            <label for="type-{{ genGroup }}-{{ type }}">{{ type }}</label>
+                        {% endfor %}
+                    </span>
+                {% endfor %}
+            </span>
+        </p>
+        <p class="row">
+            <label class="label" for="source">{{ msg('source') }}</label>
+            <textarea class="field" id="source" name="source" rows="24" cols="80">{{ source }}</textarea>
+        </p>
+        <p class="row">
+            <span class="label"></span>
+            <span class="field"><input type="submit" value="{{ msg('render') }}" /></span>
+        </p>
+    </form>
+</div>
+
+<div class="rightpage">
+    {% if result.types is defined %}
+        {% for type in result.types %}
+            <section>
+                <h2>{{ type }}</h2>
+                {% if attribute(result.diagrams, type).contents is defined %}
+                    <pre>{{ attribute(result.diagrams, type).contents }}</pre>
+                {% else %}
+                    <img src="{{ attribute(result.diagrams, type).url }}" alt="Generated diagram" />
+                {% endif %}
+            </section>
+        {% endfor %}
+    {% else %}
+        <p class="output-area">{{msg('output-area')}}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{
+  "diagram-service": "Diagram Service",
+
+  "examples": "Examples:",
+  "generators-radios": "Generator:",
+  "types": "Output types:",
+  "output-type": "Output formats:",
+  "source": "Source code:",
+
+  "graphviz": "Graphviz",
+  "mscgen": "Mscgen",
+  "plantuml": "PlantUML",
+
+  "png": "PNG",
+  "svg": "SVG",
+  "eps": "EPS",
+  "ismap": "Image Map",
+  "render": "Render",
+
+  "generator-dot-desc": "Directed graphs",
+  "generator-neato-desc": "Undirected graphs",
+  "generator-twopi-desc": "Radial layouts of graphs",
+  "generator-circo-desc": "Circular layout of graphs",
+  "generator-fdp-desc": "Undirected graphs",
+  "generator-sfdp-desc": "Large undirected graphs",
+  "generator-patchwork-desc": "Squarified tree maps",
+  "generator-osage-desc": "Array-based layouts"
+
+}

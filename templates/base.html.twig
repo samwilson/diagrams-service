@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ lang() }}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{{msg('diagram-service')}}</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1><a href="{{ path('home') }}">{{msg('diagram-service')}}</a></h1>
+        </header>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+        <footer>
+            <ul>
+                <li><a href="https://github.com/samwilson/diagram-service">{{msg('diagram-service')}} {{ git_tag() }}</a></li>
+            </ul>
+        </footer>
+        <script type="application/javascript" src="script.js"></script>
+    </body>
+</html>
