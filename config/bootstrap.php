@@ -4,7 +4,7 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require dirname( __DIR__ ) . '/vendor/autoload.php';
 
-( new Dotenv( false ) )->loadEnv( dirname( __DIR__ ) . '/.env' );
+( new Dotenv() )->load( dirname( __DIR__ ) . '/.env' );
 
 $_SERVER += $_ENV;
 $_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = ( $_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? null )

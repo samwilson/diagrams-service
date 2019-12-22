@@ -44,8 +44,10 @@
                 {% for genGroup, genTypes in types %}
                     <span class="gen-types gen-types-{{ genGroup }}">
                         {% for type in genTypes %}
-                            <input id="type-{{ genGroup }}-{{ type }}" type="checkbox" value="{{ type }}" name="types[]" />
-                            <label for="type-{{ genGroup }}-{{ type }}">{{ type }}</label>
+                            <label for="type-{{ genGroup }}-{{ type }}">
+                                <input id="type-{{ genGroup }}-{{ type }}" type="checkbox" value="{{ type }}" name="types[]" />
+                                {{ type }}
+                            </label>
                         {% endfor %}
                     </span>
                 {% endfor %}

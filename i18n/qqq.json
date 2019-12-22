@@ -1,0 +1,18 @@
+{
+  "@metadata": {
+  },
+  "diagram-service": "Application title",
+
+  "examples": "Form label for the list of examples buttons.",
+  "generators-radios": "Form label.",
+  "types": "Form label.",
+  "output-type": "Form label.",
+  "source": "Form label.",
+
+  "graphviz": "Name of Graphviz.",
+  "mscgen": "Name of Mscgen",
+  "plantuml": "Name of PlantUML",
+
+  "render": "Render button text."
+
+}

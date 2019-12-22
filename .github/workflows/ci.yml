@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -8,16 +8,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
 
     - name: Install
+      run: sudo apt-get install -y graphviz
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: '7.2'
+        extensions: intl
+
+    - name: Install application
       run: |
-        sudo apt-get install graphviz
         cp .env.dist .env
         composer install
         npm install
 
-    - name: Test
+    - name: Test application
       run: |
         composer test
         npm test
