@@ -1,16 +1,53 @@
-body { margin:1em; }
+body {
+	margin: 1em;
+}
 
-main { display:flex; }
-.leftpage, .rightpage { flex:1; }
+main {
+	display: flex;
+}
 
-form .row { display:flex; }
-form .row .label { flex:1; }
-form .row .field { flex:5; }
+.leftpage,
+.rightpage {
+	flex: 1;
+}
 
-form .gen-types { display:block; height:3em; }
+form .row {
+	display: flex;
+}
 
-.rightpage { overflow:scroll; align-self:center; text-align:center; }
-.rightpage pre { text-align:left; }
+form .row .label {
+	flex: 1;
+}
 
-footer { font-size:smaller; text-align:right; }
-footer ul { list-style-type:none; }
+form .row .field {
+	flex: 5;
+}
+
+form .gen-types {
+	display: block;
+	height: 3em;
+}
+
+form .gen-types label {
+	white-space: nowrap;
+}
+
+.rightpage {
+	overflow: scroll;
+	align-self: center;
+	text-align: center;
+	margin-left: 1em;
+}
+
+.rightpage pre {
+	text-align: left;
+}
+
+footer {
+	font-size: smaller;
+	text-align: right;
+}
+
+footer ul {
+	list-style-type: none;
+}
