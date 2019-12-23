@@ -5,6 +5,8 @@ The Wiki Diagram Tool is a small PHP web service
 for rendering Graphviz, MSCGen, and PlantUML diagrams
 from 
 
+![CI badge](https://github.com/samwilson/diagrams-service/workflows/CI/badge.svg)
+
 ## Installation
 
 1. `git clone https://github.com/samwilson/wdt.git`
