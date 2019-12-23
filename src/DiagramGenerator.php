@@ -3,6 +3,7 @@
 namespace App;
 
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;
 
 class DiagramGenerator {
@@ -221,5 +222,23 @@ class DiagramGenerator {
 			] );
 			$process->mustRun();
 		}
+	}
+
+	/**
+	 * Delete files that haven't been touched in 6 months.
+	 */
+	public function deleteOld(): void {
+		// Only run 1% of the time.
+		if ( 42 !== mt_rand( 1, 100 ) ) {
+			return;
+		}
+
+		// Delete all files that haven't been touched in 6 months.
+		$finder = new Finder();
+		$finder->files()
+			->in( $this->getDirectory() )
+			->date( 'before 6 months ago' );
+		$fs = new Filesystem();
+		$fs->remove( $finder );
 	}
 }

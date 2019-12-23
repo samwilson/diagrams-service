@@ -73,9 +73,14 @@ class ApiController extends AbstractController {
 	 * @return Response
 	 */
 	public function diagramView( Request $request, DiagramGenerator $diagramGenerator ) {
+		// Delete out-of-date files.
+		$diagramGenerator->deleteOld();
+		// See if the requested file exists.
 		$diagramGenerator->setHash( $request->get( 'hash' ) );
 		$type = $request->get( 'type' );
-		if ( !file_exists( $diagramGenerator->getOutputFilename( $type ) ) ) {
+		$filename = $diagramGenerator->getOutputFilename( $type );
+		if ( !file_exists( $filename ) ) {
+			// If it doesn't, return an error.
 			return new JsonResponse( [
 				'error' => [
 					'status' => 'error',
@@ -84,7 +89,10 @@ class ApiController extends AbstractController {
 				]
 			] );
 		}
-		return new BinaryFileResponse( $diagramGenerator->getOutputFilename( $type ) );
+		// Touch the file, to refresh its cache time.
+		touch( $filename );
+		// Return the file data.
+		return new BinaryFileResponse( $filename );
 	}
 
 }
