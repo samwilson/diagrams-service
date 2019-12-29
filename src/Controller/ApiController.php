@@ -38,7 +38,8 @@ class ApiController extends AbstractController {
 		} catch ( Exception $exception ) {
 			return new JsonResponse( [
 				'status' => 'error',
-				'error' => $exception->getMessage(),
+				'error' => $exception->getCode(),
+				'message' => $exception->getMessage(),
 			] );
 		}
 
