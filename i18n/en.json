@@ -8,11 +8,13 @@
   "types": "Output types:",
   "output-type": "Output formats:",
   "source": "Source code:",
+  "output-area":  "Output area",
 
   "graphviz": "Graphviz",
   "mscgen": "Mscgen",
   "plantuml": "PlantUML",
 
-  "render": "Render"
+  "render": "Render",
+  "error": "Error:"
 
 }
