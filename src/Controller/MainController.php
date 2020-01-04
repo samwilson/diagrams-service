@@ -39,8 +39,8 @@ class MainController extends AbstractController {
 			'generators' => $diagramGenerator->getGenerators(),
 			'generator' => $request->get( 'generator' ),
 			'source' => $request->get( 'source' ),
-			'types' => $diagramGenerator->getTypesAllowed(),
-			'type' => $request->get( 'type' ),
+			'types_allowed' => $diagramGenerator->getTypesAllowed(),
+			'types_selected' => $request->get( 'types' ),
 			'result' => $result,
 		] );
 	}

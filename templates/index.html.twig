@@ -5,10 +5,13 @@
 {% block body %}
 
 <div class="leftpage">
-    {% if result.error is defined %}
-        <pre class="error">
-            {{ result.error }}
-        </pre>
+    {% if result and result.status != 'ok' %}
+        <div class="error">
+            <h2>{{msg('error')}}</h2>
+            <pre class="error">
+                {{ result.message }}
+            </pre>
+        </div>
     {% endif %}
 
     <form action="{{ path('home') }}" method="post">
@@ -41,11 +44,16 @@
         <p class="row">
             <label class="label" for="types">{{ msg('types') }}</label>
             <span class="field">
-                {% for genGroup, genTypes in types %}
+                {% for genGroup, genTypes in types_allowed %}
                     <span class="gen-types gen-types-{{ genGroup }}">
                         {% for type in genTypes %}
                             <label for="type-{{ genGroup }}-{{ type }}">
-                                <input id="type-{{ genGroup }}-{{ type }}" type="checkbox" value="{{ type }}" name="types[]" />
+                                <input id="type-{{ genGroup }}-{{ type }}"
+                                       type="checkbox"
+                                       value="{{ type }}"
+                                       name="types[]"
+                                       {% if type in types_selected %}checked{% endif %}
+                                />
                                 {{ type }}
                             </label>
                         {% endfor %}

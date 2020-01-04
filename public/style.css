@@ -6,6 +6,12 @@ main {
 	display: flex;
 }
 
+div.error {
+	border: 1px solid #ff8c00;
+	background-color: #fff8dc;
+	padding: 0.4em;
+}
+
 .leftpage,
 .rightpage {
 	flex: 1;

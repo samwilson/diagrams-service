@@ -8,11 +8,13 @@
   "types": "Form label.",
   "output-type": "Form label.",
   "source": "Form label.",
+  "output-area": "Label shown before any image is rendered, to indicate where the output will appear.",
 
   "graphviz": "Name of Graphviz.",
   "mscgen": "Name of Mscgen",
   "plantuml": "Name of PlantUML",
 
-  "render": "Render button text."
+  "render": "Render button text.",
+  "error": "Error heading text, followed by a block for the API-provided error message."
 
 }
