@@ -1,18 +1,17 @@
-Wiki Diagram Tool
-=================
+Diagrams Service
+================
 
-The Wiki Diagram Tool is a small PHP web service
-for rendering Graphviz, MSCGen, and PlantUML diagrams
-from 
+The Diagrams Service is a small PHP web service
+for rendering Graphviz, MSCGen, and PlantUML diagrams.
 
-![CI badge](https://github.com/samwilson/diagrams-service/workflows/CI/badge.svg)
+[![CI badge](https://github.com/samwilson/diagrams-service/workflows/CI/badge.svg)](https://github.com/samwilson/diagrams-service/actions?query=workflow%3ACI)
 
 ## Installation
 
-1. `git clone https://github.com/samwilson/wdt.git`
-2. `cd wdt`
-3. `composer install --no-dev -o`
-4. Set up your webserver to serve the `public/` directory
+1. Clone the code to a web-accessible location: `git clone https://github.com/samwilson/diagrams-service.git`
+2. Go into the new directory: `cd diagrams-service`
+3. Install dependencies: `composer install --no-dev -o`
+4. Go to the `diagrams-service/public/` directory in your web browser
 
 ## Usage
 
@@ -25,7 +24,7 @@ from
 
 ### API usage
 
-1. 
+@TODO
 
 ## License: MIT
 
