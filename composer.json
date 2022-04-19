@@ -4,28 +4,33 @@
     "type": "project",
     "license": "GPL-3.0-or-later",
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "ext-ctype": "*",
+        "ext-fileinfo": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "ext-fileinfo": "*",
+        "doctrine/annotations": "^1.0",
+        "phpdocumentor/reflection-docblock": "^5.3",
+        "phpstan/phpdoc-parser": "^1.4",
         "symfony/asset": "5.0.*",
         "symfony/console": "5.0.*",
         "symfony/dotenv": "5.0.*",
+        "symfony/filesystem": "5.0.*",
+        "symfony/finder": "5.0.*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "5.0.*",
         "symfony/http-client": "5.0.*",
+        "symfony/http-foundation": "5.0.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/process": "5.0.*",
+        "symfony/property-access": "5.0.*",
+        "symfony/property-info": "5.0.*",
         "symfony/security-bundle": "5.0.*",
-        "symfony/serializer-pack": "^1.0",
+        "symfony/serializer": "5.0.*",
         "symfony/twig-bundle": "5.0.*",
         "symfony/web-link": "5.0.*",
         "symfony/yaml": "5.0.*",
-        "symfony/filesystem": "5.0.*",
-        "symfony/finder": "5.0.*",
-        "symfony/http-foundation": "5.0.*",
-        "wikimedia/toolforge-bundle": "dev-symfony5"
+        "wikimedia/toolforge-bundle": "^1.0"
     },
     "require-dev": {
         "mediawiki/mediawiki-codesniffer": "^28.0",
@@ -34,6 +39,9 @@
         "symfony/phpunit-bridge": "5.0.*"
     },
     "config": {
+        "platform": {
+            "php": "7.3"
+        },
         "sort-packages": true
     },
     "autoload": {

@@ -5,26 +5,30 @@ on: [push, pull_request]
 jobs:
   build:
 
+    strategy:
+      matrix:
+        php: [ '7.3', '7.4', '8.0', '8.1' ]
+
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Install
+    - name: Install dependencies
       run: sudo apt-get install -y graphviz
 
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v1
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2'
+        php-version: ${{matrix.php}}
         extensions: intl
 
     - name: Install application
       run: |
         cp .env.dist .env
         composer install
-        npm install
+        npm ci
 
     - name: Test application
       run: |

@@ -27,11 +27,3 @@ services:
         arguments:
             $directory: '%env(DIAGRAMS_DIR)%'
             $plantumlPath: '%env(PLANTUML_PATH)%'
-
-    Krinkle\Intuition\Intuition:
-        factory: ['Wikimedia\ToolforgeBundle\Service\Intuition', serviceFactory]
-        arguments:
-            - "@request_stack"
-            - "@session"
-            - "%kernel.project_dir%/config"
-            - "%toolforge.intuition.domain%"
