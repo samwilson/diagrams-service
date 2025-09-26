@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Exception;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;
@@ -229,7 +230,7 @@ class DiagramGenerator {
 	 */
 	public function deleteOld(): void {
 		// Only run 1% of the time.
-		if ( 42 !== mt_rand( 1, 100 ) ) {
+		if ( mt_rand( 1, 100 ) !== 42 ) {
 			return;
 		}
 

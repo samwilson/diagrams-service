@@ -7,17 +7,19 @@ use PHPUnit\Framework\TestCase;
 
 class DiagramGeneratorTest extends TestCase {
 
+	/** @var DiagramGenerator */
 	protected $diagramGenerator;
 
+	/** @var string */
 	protected $dir;
 
-	public function setUp() : void {
+	public function setUp(): void {
 		$this->dir = dirname( __DIR__ ) . '/var/tests/';
 		$this->diagramGenerator = new DiagramGenerator( $this->dir, '' );
 	}
 
 	/**
-	 * @covers DiagramGenerator::getTypesRequested()
+	 * @covers \App\DiagramGenerator::getTypesRequested()
 	 */
 	public function testTypesRequested() {
 		static::assertEquals( [ 'png' ], $this->diagramGenerator->getTypesRequested() );

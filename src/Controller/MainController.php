@@ -5,18 +5,19 @@ namespace App\Controller;
 use App\DiagramGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class MainController extends AbstractController {
 
 	/**
 	 * @param Request $request
+	 * @param HttpClientInterface $httpClient
 	 * @param DiagramGenerator $diagramGenerator
 	 * @return \Symfony\Component\HttpFoundation\Response
 	 */
-	public function index( Request $request, DiagramGenerator $diagramGenerator ) {
+	public function index( Request $request, HttpClientInterface $httpClient, DiagramGenerator $diagramGenerator ) {
 		$result = false;
 		if ( $request->get( 'source' ) ) {
 			$url = $this->generateUrl( 'render', [], UrlGeneratorInterface::ABSOLUTE_URL );
@@ -27,7 +28,7 @@ class MainController extends AbstractController {
 					'types' => $request->get( 'types' ),
 				],
 			];
-			$response = HttpClient::create()->request( 'POST', $url, $requestOptions );
+			$response = $httpClient->request( 'POST', $url, $requestOptions );
 			if ( $response->getStatusCode() === 200 ) {
 				$result = json_decode( $response->getContent() );
 			} else {

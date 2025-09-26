@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ApiControllerTest extends WebTestCase {
 
-	protected static function getKernelClass() {
+	protected static function getKernelClass(): string {
 		return Kernel::class;
 	}
 

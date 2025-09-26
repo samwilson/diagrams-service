@@ -5,6 +5,7 @@
         <exclude name="MediaWiki.Commenting.FunctionAnnotations.UnrecognizedAnnotation" />
     </rule>
     <file>.</file>
+    <arg name="extensions" value="php" />
     <exclude-pattern>.phpunit/</exclude-pattern>
     <exclude-pattern>vendor/</exclude-pattern>
     <exclude-pattern>node_modules/</exclude-pattern>
